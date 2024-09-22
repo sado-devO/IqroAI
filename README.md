@@ -394,7 +394,7 @@ To successfully implement the IqroAI project, the following sources of informati
 ## 9. MVP Information
 
 ### MVP Link
-[[IqroAI]](https://iqro-ai.streamlit.app/)
+[IqroAI](https://iqro-ai.streamlit.app/)
 
 ### Current MVP Database Status
 The current MVP database contains a limited dataset for testing purposes:
