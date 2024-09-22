@@ -115,14 +115,158 @@ The primary objective of IqroAI is to create an intelligent, personalized educat
 ```mermaid
 graph TD
     A[Client] -->|HTTP/WebSocket| B(FastAPI Backend)
-    B <--> C{Database}
+    B <--> C[(SQLite Database)]
     B <--> D[Anthropic Claude API]
     B --> E[Admin Panel]
+    
+    subgraph Database
     C --> F[User Data]
     C --> G[Chat History]
     C --> H[Academic Data]
-    I[Streamlit Frontend] --> A
-    J[Authentication Service] --> B
+    C --> I[Test Results]
+    C --> J[Psychological Assessments]
+    C --> K[Student Progress]
+    end
+    
+    L[Streamlit Frontend] --> A
+    M[Authentication Service] --> B
+    
+    subgraph AI Assistant
+    D --> N[Personalized Learning]
+    D --> O[Test Generation]
+    D --> P[Emotional Support]
+    D --> Q[Progress Analysis]
+    end
+    
+    R[Admin] --> E
+    S[Teacher] --> E
+    T[Student] --> L
+    U[Parent] --> L
+```
+### Database:
+
+```mermaid
+erDiagram
+    User ||--o{ Parent : has
+    User ||--o{ Teacher : is
+    User ||--o{ Test : takes
+    User ||--o{ PsychologicalAssessment : undergoes
+    User ||--o{ StudentProgress : tracks
+    User ||--o{ Chat : participates
+    User ||--o{ TestResult : receives
+    User ||--o{ StudentReport : generates
+    
+    Subject ||--o{ ScheduleAndBooks : contains
+    Subject ||--o{ StudentProgress : measures
+    
+    Chat ||--o{ Message : contains
+    
+    Test ||--o{ TestResult : produces
+    
+    User {
+        int id PK
+        string first_name
+        string last_name
+        string email UK
+        string password
+        string role
+        date birth_date
+        string phone_number UK
+        int grade
+        string consent
+        string interests
+        string admin_id UK
+    }
+    
+    Parent {
+        int id PK
+        int user_id FK
+        int student_id FK
+    }
+    
+    Teacher {
+        int id PK
+        int user_id FK
+        string subjects
+    }
+    
+    Subject {
+        int id PK
+        string name
+        int grade
+        string description
+        string book_text
+        string video_link
+    }
+    
+    ScheduleAndBooks {
+        int id PK
+        int subject_id FK
+        int grade
+        string title
+        string content
+        string online_lesson_link
+    }
+    
+    Test {
+        int id PK
+        int user_id FK
+        string type
+        string questions
+        string answers
+        string results
+        datetime timestamp
+    }
+    
+    TestResult {
+        int id PK
+        int user_id FK
+        int test_id FK
+        json result
+        datetime created_at
+    }
+    
+    PsychologicalAssessment {
+        int id PK
+        int user_id FK
+        string questions
+        string answers
+        string results
+        datetime timestamp
+    }
+    
+    StudentProgress {
+        int id PK
+        int user_id FK
+        int subject_id FK
+        float progress
+        datetime last_updated
+    }
+    
+    Chat {
+        int id PK
+        int user_id FK
+        string name
+        datetime created_at
+        datetime updated_at
+    }
+    
+    Message {
+        int id PK
+        int chat_id FK
+        string role
+        string content
+        datetime timestamp
+    }
+    
+    StudentReport {
+        int id PK
+        int user_id FK
+        string subject
+        float percentage
+        int grade
+        datetime created_at
+    }
 ```
 
 This diagram illustrates the high-level architecture of the IqroAI system, showing the main components and their interactions.
