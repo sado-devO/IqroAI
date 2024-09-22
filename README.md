@@ -10,7 +10,7 @@ Design, development, implementation, and technical support of the IqroAI educati
    - Asoschi va Data muhandis
 2. Tojiddinov Xayitislom:
    - AI muhandis,Backend dasturchi
-3. Xoshimjonov Bovirjon:
+3. Xoshimjonov Boburjon:
    - AI muhandis, Data muhandis
 
 ### Technology Stack
