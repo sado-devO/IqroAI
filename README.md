@@ -6,7 +6,12 @@ Design, development, implementation, and technical support of the IqroAI educati
 ## 2. Team Name and Technology Stack
 
 ### Team Members
-[List of team members participating in the project]
+1. Tojiddinov Sardorbek:
+   - Asoschi va Data muhandis
+2. Tojiddinov Xayitislom:
+   - AI muhandis,Backend dasturchi
+3. Xoshimjonov Bovirjon:
+   - AI muhandis, Data muhandis
 
 ### Technology Stack
 - Backend: Python (FastAPI)
@@ -245,7 +250,7 @@ To successfully implement the IqroAI project, the following sources of informati
 ## 9. MVP Information
 
 ### MVP Link
-[[Insert MVP link here when available]](https://iqro-ai.streamlit.app/)
+[[IqroAI]](https://iqro-ai.streamlit.app/)
 
 ### Current MVP Database Status
 The current MVP database contains a limited dataset for testing purposes:
